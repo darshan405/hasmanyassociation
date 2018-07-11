@@ -1,0 +1,10 @@
+
+<p>
+  <strong>Answer:</strong>
+  <%= answer.body %>
+</p>
+<%if @user && @user.has_role?(:admin) %>
+<%= link_to 'Destroy answer', [answer.question, answer],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+              <% end %>

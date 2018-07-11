@@ -1,0 +1,5 @@
+<h1>Rails Application</h1>
+<%#= link_to 'My rails application', controller: 'questions' %>
+<%if @user && @user.has_role?(:admin) %>
+<%= link_to 'Create question', new_question_path %>
+<% end %>

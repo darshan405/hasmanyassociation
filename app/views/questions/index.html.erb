@@ -1,0 +1,26 @@
+<h1>Welcome to rails application</h1>
+<h2>Question list</h2>
+ <%if @user && @user.has_role?(:admin) %>
+<%= link_to 'Create question', new_question_path %>
+<% end %>
+<table>
+  <tr>
+    <th>Question_title</th>
+    <th colspan="2"></th>
+  </tr>
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.text %></td>
+      <%if @user && @user.has_role?(:admin) %>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+       <td><%= link_to 'Destroy', question_path(question),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Show', question_path(question) %></td>
+        <% end %>
+        <%if @user && @user.has_role?(:user) %>
+      <td><%= link_to 'Show', question_path(question) %></td>
+       <% end %>
+    </tr>
+  <% end %>
+</table>
