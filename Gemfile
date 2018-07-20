@@ -6,11 +6,17 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
+gem 'pry', '~> 0.11.3'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'factory_girl_rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
+end
+group :development, :test do
+  gem 'rspec-rails', '~> 3.7'
 end
 group :development do
   gem 'web-console'
@@ -29,14 +35,10 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
 end
-group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'rspec-rails'
-end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'rails-controller-testing'
 end
